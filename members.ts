@@ -12,10 +12,14 @@ export class Member {
   }
 
   borrowBook(book: Book): void {
+    if (this.borrowedBooks.includes(book)){
+    console.log(`Sorry this Book has already been borrowed by You`)
+   }
     if (book.isAvailable) {
       book.borrow();
       this.borrowedBooks.push(book);
-    } else {
+    } 
+    else {
       console.log(`${book.title} is not available.`);
     }
   }
